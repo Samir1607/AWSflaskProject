@@ -5,8 +5,8 @@ import os
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
-conn = mysql.connector.connect(user='root', password='1995', host='localhost', database='sam', port='3306')
-# conn = mysql.connector.connect(user='sql12600434', password='Ac8eIKNziI', host='sql12.freemysqlhosting.net', database='sql12600434', port='3306')
+# conn = mysql.connector.connect(user='root', password='1995', host='localhost', database='sam', port='3306')
+conn = mysql.connector.connect(user='sql12600434', password='Ac8eIKNziI', host='sql12.freemysqlhosting.net', database='sql12600434', port='3306')
 cursor = conn.cursor()
 
 
