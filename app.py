@@ -6,6 +6,7 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 conn = mysql.connector.connect(user='root', password='1995', host='localhost', database='sam', port='3306')
+# conn = mysql.connector.connect(user='sql12600434', password='Ac8eIKNziI', host='sql12.freemysqlhosting.net', database='sql12600434', port='3306')
 cursor = conn.cursor()
 
 
@@ -43,13 +44,13 @@ def login_validate():
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    name= request.form.get('name1')
-    email = request.form.get('email1')
-    password = request.form.get('password1')
+    name1= request.form.get('name1')
+    email1 = request.form.get('email1')
+    password1 = request.form.get('password1')
 
-    cursor.execute("""INSERT INTO  `users`(`id`,`name`,`email`,`password`)  VALUES(Null,'{}','{}','{}')""".format(name, email, password))
+    cursor.execute("""INSERT INTO  `users`(`id`,`name`,`email`,`password`)  VALUES(Null,'{}','{}','{}')""".format(name1, email1, password1))
     conn.commit()
-    cursor.execute("""SELECT * FROM `users` WHERE `email` LIKE '{}'""".format(email))
+    cursor.execute("""SELECT * FROM `users` WHERE `email` LIKE '{}'""".format(email1))
     myuser = cursor.fetchall()
     session['id'] = myuser[0][0]
     return redirect('/info')
